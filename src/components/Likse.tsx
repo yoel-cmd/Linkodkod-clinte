@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "../style/Likse.css"
 
 export default function Likse(props:{emoji:number}){
     const[count,setCount]=useState(props.emoji)

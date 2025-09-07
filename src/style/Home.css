@@ -1,0 +1,11 @@
+.posts{
+    max-width: 700px,900px;
+    margin-inline-end: auto;
+    /* background-color: gray; */
+    display: grid;
+    /* grid-template-columns: 1fr 3fr 1fr; */
+    justify-items: center;
+    /* padding: 12rem; */
+    padding: 7rem;
+    gap: 2px;
+}
