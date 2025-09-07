@@ -1,13 +1,3 @@
-export default function DataTime(){
-     const date = new Date();
-    const showTime = date.getHours() 
-        + ':' + date.getMinutes() 
-        + ":" + date.getSeconds();
-
-    return (
-        <div className="App">
-            
-            <h2 > {showTime}</h2>
-        </div>
-    );
+export default function DataTime(props: { time: string }) {
+  return <h2> {props.time}</h2>;
 }

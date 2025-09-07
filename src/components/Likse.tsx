@@ -1,7 +1,7 @@
-export default function Likse(){
+export default function Likse(props:{imoji:string}){
    return(
     <>
-    <p>❤️</p>
+    <p>{props.imoji}</p>
     </>
    ) 
 }

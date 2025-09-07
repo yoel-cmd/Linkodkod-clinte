@@ -1,7 +1,7 @@
-export default function Descripition() {
+export default function Descripition(props:{desc:string}) {
   return (
     <>
-      <p>Hi, this is my first post, I'd love to know what you think of it.</p>
+      <p id="textDescription">{props.desc}</p>
       
     </>
   );

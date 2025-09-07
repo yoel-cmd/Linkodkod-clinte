@@ -1,15 +1,25 @@
-import Post from './components/Post'
-import './App.css'
+import Post from "./components/Post";
+import "./App.css";
+import { posts } from "./utils/posts";
 
 function App() {
   
 
   return (
     <>
-    <Post/>
-    
+     
+        {posts.map((post)=>(
+          <Post
+          src={post.src}
+          desc={post.desc}
+          imoji={post.imoji}
+          fullName={post.fullName}
+          time={post.time}
+          />
+        ))}
+        
     </>
-  )
+  );
 }
 
-export default App
+export default App;
