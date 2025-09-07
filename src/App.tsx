@@ -1,23 +1,17 @@
-import Post from "./components/Post";
 import "./App.css";
-import { posts } from "./utils/posts";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Home from "./pages/Home";
 
 function App() {
-  
-
   return (
     <>
-     
-        {posts.map((post)=>(
-          <Post
-          src={post.src}
-          desc={post.desc}
-          emoji={post.emoji}
-          fullName={post.fullName}
-          time={post.time}
-          />
-        ))}
-        
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+      
+      
     </>
   );
 }
