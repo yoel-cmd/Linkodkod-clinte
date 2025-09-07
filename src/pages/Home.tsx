@@ -1,4 +1,4 @@
-import { posts } from "../utils/posts.ts";
+import posts from "../utils/posts.json";
 import Post from "../components/Post.tsx";
 import "../style/Home.css";
 
