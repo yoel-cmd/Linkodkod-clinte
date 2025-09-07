@@ -16,9 +16,9 @@ export default function Post(props: {
       <span className="post">
         <Image src={props.src} />
         <Descripition desc={props.desc} />
-        <Likse emoji={props.emoji} />
         <p>{props.fullName}</p>
         <DataTime time={props.time} />
+        <Likse emoji={props.emoji} />
       </span>
     </>
   );
