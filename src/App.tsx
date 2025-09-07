@@ -12,7 +12,7 @@ function App() {
           <Post
           src={post.src}
           desc={post.desc}
-          imoji={post.imoji}
+          emoji={post.emoji}
           fullName={post.fullName}
           time={post.time}
           />
