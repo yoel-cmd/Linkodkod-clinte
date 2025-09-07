@@ -1,7 +1,9 @@
+import "../style/Description.css"
+
 export default function Descripition(props:{desc:string}) {
   return (
     <>
-      <p id="textDescription">{props.desc}</p>
+      <p className="textDescription">{props.desc}</p>
       
     </>
   );
