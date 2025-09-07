@@ -5,14 +5,14 @@ import Likse from "./Likse"
 
 
 
-export default function Post(props:{src:string,desc:string,time:string,imoji:string,fullName:string}){
+export default function Post(props:{src:string,desc:string,time:string,emoji:number,fullName:string}){
     
     return(
         <>
         <span id="post">
         <Image src={props.src} />
         <Descripition desc={props.desc}/>
-        <Likse imoji={props.imoji}/>
+        <Likse emoji={props.emoji}/>
         <p>{props.fullName}</p>
         <DataTime time={props.time}/>
         </span>
