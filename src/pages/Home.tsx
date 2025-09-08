@@ -1,25 +1,32 @@
 import { useEffect, useState } from "react";
 import Post from "../components/Post.tsx";
-// import "../style/Home.css";
+import "../style/Home.css";
 import { readAllPost } from "../utils/CRUD.ts";
 import { type post } from "../components/Post.tsx";
 
-
 export default function Home() {
-    const [data, setData] = useState<post[]>([]);
+  const [data, setData] = useState<post[]>([]);
+  const [err, setErr] = useState<unknown>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
-useEffect(() => {
-  async function fatchData() {
-    const data = await readAllPost();
-   const post= JSON.parse(data)
-    
-    setData(post);
-  }
-  fatchData();
-}, []);
+  useEffect(() => {
+    async function fatchData() {
+      try {
+        const data = await readAllPost();
+        const post = JSON.parse(data);
+        setData(post);
+        setLoading(true)
+      } catch (error: unknown) {
+        setErr(error);
+        console.log("err is :", err);
+      }
+    }
+    fatchData();
+  }, [loading]);
+
+  if(!err){
   return (
     <>
-      <h1>hi from home</h1>
       <div className="posts">
         {data.map((post) => (
           <Post
@@ -34,4 +41,11 @@ useEffect(() => {
       </div>
     </>
   );
+}
+else if(!loading){
+    return<><h1>Loading....</h1></>
+}
+else{
+    return<><h1>{err?.message}</h1></>
+}
 }
