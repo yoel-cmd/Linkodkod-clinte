@@ -15,37 +15,44 @@ export default function Home() {
         const data = await readAllPost();
         const post = JSON.parse(data);
         setData(post);
-        setLoading(true)
+        setLoading(true);
       } catch (error: unknown) {
         setErr(error);
-        console.log("err is :", err);
       }
     }
+
     fatchData();
   }, [loading]);
+  console.log("err is :", err);
 
-  if(!err){
-  return (
-    <>
-      <div className="posts">
-        {data.map((post) => (
-          <Post
-            key={post.src}
-            src={post.src}
-            desc={post.desc}
-            fullName={post.fullName}
-            time={post.time}
-            emoji={post.emoji}
-          />
-        ))}
-      </div>
-    </>
-  );
-}
-else if(!loading){
-    return<><h1>Loading....</h1></>
-}
-else{
-    return<><h1>{err?.message}</h1></>
-}
+  if (err) {
+    return (
+      <>
+        <h1>{err?.message}</h1>
+      </>
+    );
+  } else if (!loading) {
+    return (
+      <>
+        <h1>Loading....</h1>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="posts">
+          {data.map((post) => (
+            <Post
+              key={post.src}
+              src={post.src}
+              desc={post.desc}
+              fullName={post.fullName}
+              time={post.time}
+              emoji={post.emoji}
+            />
+          ))}
+        </div>
+      </>
+    );
+  }
 }
