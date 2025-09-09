@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import { readPostById } from "../utils/CRUD";
 import Post, { type post } from "../components/Post.tsx";
 
 export default function SingelPost() {
-  {
-    /* I take the id from the URL */
-  }
-  const navigate = useNavigate();
+  {/* I take the id from the URL */}
   const {id} = useParams<any>();  
   const [post, setPost] = useState<post | null>(null);
   const [err, setErr] = useState<unknown>(null);
