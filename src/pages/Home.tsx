@@ -43,7 +43,7 @@ export default function Home() {
         <div className="posts">
           {data.map((post) => (
             <Post
-              key={post.src}
+              key={post.id}
               src={post.src}
               desc={post.desc}
               fullName={post.fullName}

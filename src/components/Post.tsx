@@ -5,6 +5,7 @@ import Likse from "./Likse";
 import "../style/Post.css";
 
  export type post={
+  id:string
  src: string;
   desc: string;
   time: string;

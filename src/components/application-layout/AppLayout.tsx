@@ -1,10 +1,17 @@
+import { Link } from "react-router";
 import HeaderLayout from "./HeaderLayout";
-import { Children, type PropsWithChildren } from "react";
+import { type PropsWithChildren } from "react";
 
 export default function AppLayout(props: PropsWithChildren) {
   return (
     <>
       <HeaderLayout />
+
+      <nav>
+        <Link to="/posts">Post</Link>
+        <Link to="/crud">CRUD</Link>
+        <Link to="/">Home</Link>
+      </nav>
       {props.children}
     </>
   );
