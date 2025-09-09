@@ -1,13 +1,18 @@
+//---------------------------------------------imports----------------------------------------------
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { readPostById } from "../utils/CRUD";
 import Post, { type post } from "../components/Post.tsx";
+//---------------------------------------------start page--------------------------------------------
 
 export default function SingelPost() {
   {/* I take the id from the URL */}
   const {id} = useParams<any>();  
   const [post, setPost] = useState<post | null>(null);
   const [err, setErr] = useState<unknown>(null);
+//-----------------------------------------------use effect-------------------------------------------------
+
   useEffect(() => {
     async function feachData() {
       try {
@@ -19,6 +24,8 @@ export default function SingelPost() {
     }
     feachData();
   }, []);
+
+//-----------------------------------------------return-------------------------------------------------
 
   if (err) {
     return (

@@ -1,9 +1,11 @@
+//---------------------------------------------imports----------------------------------------------
 import { useState } from "react";
 import "../style/Likse.css";
-
+//---------------------------------------------start page--------------------------------------------
 export default function Likse(props: { emoji: number }) {
   const [count, setCount] = useState(props.emoji);
   const [pressure, setPrass] = useState(false);
+//-----------------------------------------------return-------------------------------------------------
   return (
     <>
     {/* I made a promise that each click only raises the mark once - another click lowers it. */}

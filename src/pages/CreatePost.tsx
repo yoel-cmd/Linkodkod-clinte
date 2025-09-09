@@ -1,14 +1,18 @@
+//---------------------------------------------imports----------------------------------------------
 import { useRef } from "react";
 import { useNavigate } from "react-router";
+//---------------------------------------------start page--------------------------------------------
 export default function Create() {
-        const navigate = useNavigate();
+  const navigate = useNavigate();
   const urlRef = useRef<HTMLInputElement>(null);
   const descRef = useRef<HTMLInputElement>(null);
   const allstoryRef = useRef<HTMLInputElement>(null);
   const fullnameRef = useRef<any>(null);
+  
   const formRef = useRef<HTMLFormElement>(null);
   const selectRef = useRef<any>(null);
 
+//-----------------------------------------------return-------------------------------------------------
   return (
     <>
       <h1 className="title">Hey, this is the place to post your own post.</h1>
@@ -26,11 +30,6 @@ export default function Create() {
         <button
           onClick={async (e) => {
             e.preventDefault();
-            console.log(urlRef.current?.value);
-            console.log(descRef.current?.value);
-            console.log(allstoryRef.current?.value);
-    
-            
             if (!selectRef.current?.value ||!descRef.current?.value ||!allstoryRef.current?.value ||!fullnameRef.current?.value ){
               return 
             }
@@ -42,6 +41,7 @@ export default function Create() {
               console.log("value is ",post);
               
             });
+            
             try {
               fetch("http://localhost:3000/create-post", {
                 method: "POST",

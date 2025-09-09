@@ -1,3 +1,4 @@
+//---------------------------------------------imports----------------------------------------------
 import DataTime from "./Data.Time";
 import Descripition from "./Description";
 import Image from "./Image";
@@ -5,8 +6,9 @@ import Likse from "./Likse";
 import "../style/Post.css";
 import type post from "../interface/post.typr.ts"
 
-
+//---------------------------------------------start page--------------------------------------------
 export default function Post(props: post) {
+//-----------------------------------------------return-------------------------------------------------
   return (
     <>
       <span className="post">
