@@ -9,7 +9,8 @@ export default function Likse(props: { emoji: number }) {
     {/* I made a promise that each click only raises the mark once - another click lowers it. */}
       <button
         className="btnLike"
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           if (!pressure) {
             setCount((prev) => prev + 1);
             setPrass((prev) => !prev);
