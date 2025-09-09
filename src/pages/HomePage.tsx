@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import { readAllPost } from "../utils/CRUD.ts";
 import Post from "../components/Post.tsx";
 import "../style/Home.css";
-import { readAllPost } from "../utils/CRUD.ts";
-import { type post } from "../components/Post.tsx";
+import type post from "../interface/post.typr.ts"
 import { Link } from "react-router";
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
           {data.map((post) => (
             <Link key={post.id} to={`/post/${post.id}`}>
               <Post
-                id={post.id}
+              id={post.id}
                 src={post.src}
                 desc={post.desc}
                 fullName={post.fullName}
