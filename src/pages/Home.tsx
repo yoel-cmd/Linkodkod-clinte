@@ -25,6 +25,7 @@ export default function Home() {
   }, [loading]);
   console.log("err is :", err);
 
+
   if (err) {
     return (
       <>
@@ -44,6 +45,7 @@ export default function Home() {
           {data.map((post) => (
             <Post
               key={post.id}
+              id={post.id}
               src={post.src}
               desc={post.desc}
               fullName={post.fullName}
