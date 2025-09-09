@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router";
+
 export default function CRUD() {
+    const navigate = useNavigate();
+
   return(
   <>
-    <button>create</button>
-    <button>read</button>
-    <button>update</button>
-    <button>delete</button>
+    <button onClick={() => {navigate("/create-post")}}>create</button>
+    <button onClick={() => {navigate("/")}}>read</button>
+
   </>
 )}
