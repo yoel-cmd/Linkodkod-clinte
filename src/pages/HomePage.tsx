@@ -1,3 +1,4 @@
+//---------------------------------------------imports----------------------------------------------
 import { useEffect, useState } from "react";
 import { readAllPost } from "../utils/CRUD.ts";
 import Post from "../components/Post.tsx";
@@ -5,11 +6,12 @@ import "../style/Home.css";
 import type post from "../interface/post.typr.ts"
 import { Link } from "react-router";
 
+//---------------------------------------------start page--------------------------------------------
 export default function Home() {
   const [data, setData] = useState<post[]>([]);
   const [err, setErr] = useState<unknown>(null);
   const [loading, setLoading] = useState<boolean>(false);
-
+//----------------------------------------------use effect -------------------------------------------
   useEffect(() => {
     async function fatchData() {
       try {
@@ -21,11 +23,10 @@ export default function Home() {
         setErr(error);
       }
     }
-
     fatchData();
   }, [loading]);
   console.log("err is :", err);
-
+//-----------------------------------------------return-------------------------------------------------
   if (err) {
     return (
       <>
