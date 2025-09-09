@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Home from "./pages/Home";
 import AppLayout from "./components/application-layout/AppLayout";
 import CRUD from "./pages/CRUD";
-import Posts from "./pages/Posts";
+import Posts from "./pages/PostsPage";
 import SingelPost from "./components/SingelPost";
 
 function App() {

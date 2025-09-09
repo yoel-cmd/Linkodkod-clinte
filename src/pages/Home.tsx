@@ -3,6 +3,7 @@ import Post from "../components/Post.tsx";
 import "../style/Home.css";
 import { readAllPost } from "../utils/CRUD.ts";
 import { type post } from "../components/Post.tsx";
+import { Link } from "react-router";
 
 export default function Home() {
   const [data, setData] = useState<post[]>([]);
@@ -25,7 +26,6 @@ export default function Home() {
   }, [loading]);
   console.log("err is :", err);
 
-
   if (err) {
     return (
       <>
@@ -41,17 +41,19 @@ export default function Home() {
   } else {
     return (
       <>
+        {/* What I did here is that at the time of creation, I create a link for each post that takes it to the path I defined in the APP that activates a component that returns it only. */}
         <div className="posts">
           {data.map((post) => (
-            <Post
-              key={post.id}
-              id={post.id}
-              src={post.src}
-              desc={post.desc}
-              fullName={post.fullName}
-              time={post.time}
-              emoji={post.emoji}
-            />
+            <Link key={post.id} to={`/post/${post.id}`}>
+              <Post
+                id={post.id}
+                src={post.src}
+                desc={post.desc}
+                fullName={post.fullName}
+                time={post.time}
+                emoji={post.emoji}
+              />
+            </Link>
           ))}
         </div>
       </>
