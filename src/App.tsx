@@ -17,10 +17,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/posts" element={<Posts />} />
             <Route path="/crud" element={<CRUD />} />
-            <Route path="/" element={<Home />} />
             <Route path="/post/:id" element={<SingelPost/>} />
             <Route path="/create-post" element={<Create/>} />
-            <Route path="/post/:id" element={<SingelPost/>} />
             <Route path="/finish" element={<Finish/>} />
           </Routes>
         </AppLayout>

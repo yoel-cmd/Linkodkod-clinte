@@ -1,3 +1,4 @@
+import type post from "../interface/post.typr.ts"
 {/*A function that makes a fetch request to the server to get all posts */}
 export async function readAllPost() {
   try {
@@ -29,4 +30,13 @@ export async function readPostById(id: any) {
   }
 }
 
+export async function readAllPostAuth(user:any) {
+  const res = await fetch(`http://localhost:3000/post`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username: user.username, password: user.password }),
+  });
+  if (!res.ok) throw new Error(`Failed to load posts (${res.status})`);
+  return (await res.json()) as any[];
+}
 
