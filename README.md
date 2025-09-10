@@ -35,16 +35,16 @@ npm run dev
 1. HomePage – מציג טופס Login/Register אם אין קרדנציאלז שמורים.
 
 
-2. התחברות/הרשמה מוצלחת → שמירת {username,password} ב-localStorage (לימודי בלבד).
+2. התחברות/הרשמה מוצלחת → שמירת {username,password} ב-localStorage .
 
 
-3. בקשת פוסטים נשלחת ל־POST /post/auth-list עם הקרדנציאלז ב-body.
+3. בקשת פוסטים נשלחת ל־POST /post/auth-list עם שם משתמש וסיסמא ב-body.
 
 
 4. פיד מציג כרטיסים קומפקטיים  לחיצה על כרטיס → /post/:id.
 
 
-5. דף פוסט מציג תמונה גדולה + desc + allStory + כפתור לייק 
+5. דף פוסט מציג תמונה זו בלבד + desc + y + כפתור לייק 
 
 
 
