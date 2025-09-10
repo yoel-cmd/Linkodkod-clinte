@@ -7,6 +7,7 @@ import Posts from "./pages/PostsPage";
 import SingelPost from "./components/SingelPost";
 import Create from "./pages/CreatePost";
 import Finish from "./pages/FinishPage";
+import LoginOrSignUp from "./pages/Login.tsx";
 
 function App() {
   return (
@@ -14,12 +15,13 @@ function App() {
       <BrowserRouter>
         <AppLayout>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<LoginOrSignUp />} />
             <Route path="/posts" element={<Posts />} />
             <Route path="/crud" element={<CRUD />} />
             <Route path="/post/:id" element={<SingelPost/>} />
             <Route path="/create-post" element={<Create/>} />
             <Route path="/finish" element={<Finish/>} />
+            <Route path="/home" element={<Home/>} />
           </Routes>
         </AppLayout>
       </BrowserRouter>

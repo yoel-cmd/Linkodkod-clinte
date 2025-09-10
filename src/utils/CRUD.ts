@@ -3,6 +3,7 @@ import type post from "../interface/post.typr.ts"
 export async function readAllPost() {
   try {
     const res = await fetch("http://localhost:3000/post");
+
     if (!res.ok) {
       const err = await res.json();
       throw new Error(err.error);
@@ -14,6 +15,15 @@ export async function readAllPost() {
   }
 }
 
+// export async function readAllPostAuth(user:any) {
+//   const res:any = await fetch(`http://localhost:3000/post`, {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({ username: user.username, password: user.password }),
+//   });
+//   if (!res.ok) throw new Error("Failed to load posts",res.status);
+//   return (await res.json()) as any[];
+// }
 
 // {/*A function that makes a fetch request to the server to get a post by ID. */}
 // export async function readPostById(id: any) {
@@ -30,15 +40,6 @@ export async function readAllPost() {
 //   }
 // }
 
-export async function readAllPostAuth(user:any) {
-  const res:any = await fetch(`http://localhost:3000/post`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username: user.username, password: user.password }),
-  });
-  if (!res.ok) throw new Error("Failed to load posts",res.status);
-  return (await res.json()) as any[];
-}
 
 
 export async function readPostById(id: string, user:any ) {
@@ -50,4 +51,6 @@ export async function readPostById(id: string, user:any ) {
   if (!res.ok) throw new Error("Failed to load posts",res.status);
   return (await res.json()) as any;
 }
+
+
 

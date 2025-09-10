@@ -5,17 +5,22 @@ import Post from "../components/Post.tsx";
 import "../style/Home.css";
 import type post from "../interface/post.typr.ts"
 import { Link } from "react-router";
-
+import { loadLS } from "../utils/LocalStoreg.ts";
 //---------------------------------------------start page--------------------------------------------
 export default function Home() {
   const [data, setData] = useState<post[]>([]);
   const [err, setErr] = useState<unknown>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const user=loadLS("auth")
+  console.log("userr:",user);
+  
 //----------------------------------------------use effect -------------------------------------------
   useEffect(() => {
     async function fatchData() {
       try {
-        const data = await readAllPost();
+        const data:any = await readAllPost();
+        console.log("TO:",typeof data);
+        
         const post = JSON.parse(data);
         setData(post);
         setLoading(true);
