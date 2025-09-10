@@ -41,6 +41,7 @@ export default function Create() {
               console.log("value is ",post);
               
             });
+//---------------------------------------------feach--------------------------------------------
             
             try {
               fetch("http://localhost:3000/create-post", {

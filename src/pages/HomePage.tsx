@@ -1,23 +1,29 @@
 //---------------------------------------------imports----------------------------------------------
 import { useEffect, useState } from "react";
-import { readAllPost } from "../utils/CRUD.ts";
+import {  readAllPostAuth } from "../utils/CRUD.ts";
 import Post from "../components/Post.tsx";
 import "../style/Home.css";
-import type post from "../interface/post.typr.ts"
+import type post from "../interface/post.typr.ts";
 import { Link } from "react-router";
-
+import { loadLS } from "../utils/LocalStoreg.ts";
 //---------------------------------------------start page--------------------------------------------
 export default function Home() {
   const [data, setData] = useState<post[]>([]);
   const [err, setErr] = useState<unknown>(null);
   const [loading, setLoading] = useState<boolean>(false);
-//----------------------------------------------use effect -------------------------------------------
+  const user = loadLS("auth");
+  console.log("userr:", user);
+
+  //----------------------------------------------use effect -------------------------------------------
   useEffect(() => {
     async function fatchData() {
       try {
-        const data = await readAllPost();
-        const post = JSON.parse(data);
-        setData(post);
+        const data: any = await readAllPostAuth(user);
+        console.log("TO:", typeof data);
+
+        const posts = await readAllPostAuth(user);
+        setData(posts);
+
         setLoading(true);
       } catch (error: unknown) {
         setErr(error);
@@ -25,8 +31,8 @@ export default function Home() {
     }
     fatchData();
   }, [loading]);
-  console.log("err is :", err);
-//-----------------------------------------------return-------------------------------------------------
+  
+  //-----------------------------------------------return-------------------------------------------------
   if (err) {
     return (
       <>
@@ -47,7 +53,7 @@ export default function Home() {
           {data.map((post) => (
             <Link key={post.id} to={`/post/${post.id}`}>
               <Post
-              id={post.id}
+                id={post.id}
                 src={post.src}
                 desc={post.desc}
                 fullName={post.fullName}

@@ -1,9 +1,10 @@
 //---------------------------------------------imports----------------------------------------------
-
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { readPostById } from "../utils/CRUD";
-import Post, { type post } from "../components/Post.tsx";
+import Post  from "../components/Post.tsx";
+import type post from "../interface/post.typr.ts";
+import { loadLS } from "../utils/LocalStoreg.ts";
 //---------------------------------------------start page--------------------------------------------
 
 export default function SingelPost() {
@@ -11,12 +12,14 @@ export default function SingelPost() {
   const {id} = useParams<any>();  
   const [post, setPost] = useState<post | null>(null);
   const [err, setErr] = useState<unknown>(null);
+  const user = loadLS("auth");
+    console.log("userr:", user);
 //-----------------------------------------------use effect-------------------------------------------------
 
   useEffect(() => {
     async function feachData() {
       try {
-        const post = await readPostById(id);
+        const post = await readPostById(id,user);
         setPost(post);
       } catch (error) {
         setErr(error);
