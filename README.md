@@ -16,13 +16,11 @@ localStorage
 
 
 
-
-
 איך מריצים
 
 ב־CRUD.ts וב־auth.ts:
 
-const BASE = "http://localhost:3000";
+url= "http://localhost:3000";
 
 עדכן לפי כתובת השרת.
 
