@@ -1,6 +1,6 @@
 README — Client (React + TypeScript)
 
- תקציר
+
 
 קליינט React (TS) עם Router. דף הבית מציג רק טפסי התחברות/הרשמה; אחרי התחברות מוצלחת — נטענים הפוסטים מהשרת. אין JWT — שולחים username/password ב-body במסלול המאומת.
 
